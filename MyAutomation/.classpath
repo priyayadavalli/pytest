@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="D:/D/workspaces/jars_webdriver_junit_datadriven/apache-mime4j-0.6.jar"/>
 	<classpathentry kind="lib" path="D:/D/workspaces/jars_webdriver_junit_datadriven/bsh-1.3.0.jar"/>
 	<classpathentry kind="lib" path="D:/D/workspaces/jars_webdriver_junit_datadriven/cglib-nodep-2.1_3.jar"/>
@@ -48,5 +47,6 @@
 	<classpathentry kind="lib" path="D:/D/workspaces/jars_webdriver_junit_datadriven/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="lib" path="D:/D/SeleniumAutomation/WebservicesAutomation/lib/junit.jar"/>
 	<classpathentry kind="lib" path="D:/D/SeleniumAutomation/WebservicesAutomation/lib/jxl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

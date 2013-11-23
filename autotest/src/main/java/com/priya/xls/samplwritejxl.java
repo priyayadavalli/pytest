@@ -1,14 +1,16 @@
-package xls;
+package com.priya.xls;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
-import jxl.*;
+import jxl.Sheet;
+import jxl.Workbook;
 import jxl.read.biff.BiffException;
-import jxl.write.*;
-import jxl.write.Number;
+import jxl.write.Label;
+import jxl.write.WritableCell;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 public class samplwritejxl {
@@ -19,7 +21,9 @@ public class samplwritejxl {
 	public String sheetName = null;
 	public int rowNum;
 
-	public String writeResult(String wbPath, String sheetName)throws RowsExceededException, WriteException, IOException,BiffException {
+	public String writeResult(String wbPath, String sheetName)
+			throws RowsExceededException, WriteException, IOException,
+			BiffException {
 		this.path = wbPath;
 		this.sheetName = sheetName;
 		wb = Workbook.getWorkbook(new File(wbPath));
@@ -34,8 +38,11 @@ public class samplwritejxl {
 		wb.close();
 		return "success";
 	}
-	public String writePass(String wbPath, String sheetName,int rowNum)throws RowsExceededException, WriteException, IOException,BiffException {
-		this.rowNum=rowNum;
+
+	public String writePass(String wbPath, String sheetName, int rowNum)
+			throws RowsExceededException, WriteException, IOException,
+			BiffException {
+		this.rowNum = rowNum;
 		this.path = wbPath;
 		this.sheetName = sheetName;
 		wb = Workbook.getWorkbook(new File(wbPath));
@@ -50,8 +57,11 @@ public class samplwritejxl {
 		wb.close();
 		return "success";
 	}
-	public String writeFail(String wbPath, String sheetName,int rowNum)throws RowsExceededException, WriteException, IOException,BiffException {
-		this.rowNum=rowNum;
+
+	public String writeFail(String wbPath, String sheetName, int rowNum)
+			throws RowsExceededException, WriteException, IOException,
+			BiffException {
+		this.rowNum = rowNum;
 		this.path = wbPath;
 		this.sheetName = sheetName;
 		wb = Workbook.getWorkbook(new File(wbPath));
@@ -66,7 +76,6 @@ public class samplwritejxl {
 		wb.close();
 		return "fail";
 	}
-
 
 	public static void main(String[] args) throws BiffException, IOException,
 			RowsExceededException, WriteException {

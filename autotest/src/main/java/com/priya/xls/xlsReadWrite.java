@@ -1,11 +1,8 @@
-package xls;
+package com.priya.xls;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
-import java.util.Iterator;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -72,8 +69,8 @@ public class xlsReadWrite {
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
 				// System.out.println(row.getCell(i).getStringCellValue().trim());
-				if (row.getCell(i).getStringCellValue().trim().equals(
-						colName.trim()))
+				if (row.getCell(i).getStringCellValue().trim()
+						.equals(colName.trim()))
 					col_Num = i;
 			}
 			if (col_Num == -1)
@@ -408,7 +405,7 @@ public class xlsReadWrite {
 	}
 
 	public boolean isSheetExist(String sheetName) {
-		
+
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1) {
 			index = workbook.getSheetIndex(sheetName.toUpperCase());
@@ -471,15 +468,16 @@ public class xlsReadWrite {
 
 	}
 
-public static void main(String args[]) {
+	public static void main(String args[]) {
 		xlsReadWrite read = new xlsReadWrite(
 				"	C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
-System.out.println(System.getProperty("user.dir"));
- System.out.println(read.getRowCount("Test Suites"));
-/* System.out.println(read.getCellData("Test Suite", "TSID", 2));
- for (int j=0;j<read.getColumnCount("Test Suite");j++)
-		for (int i = 2; i <= read.getRowCount("Test Suite"); i++) {
-			System.out.println(read.getCellData("Test Suite", "TSID", i));
-		}*/
+		System.out.println(System.getProperty("user.dir"));
+		System.out.println(read.getRowCount("Test Suites"));
+		/*
+		 * System.out.println(read.getCellData("Test Suite", "TSID", 2)); for
+		 * (int j=0;j<read.getColumnCount("Test Suite");j++) for (int i = 2; i
+		 * <= read.getRowCount("Test Suite"); i++) {
+		 * System.out.println(read.getCellData("Test Suite", "TSID", i)); }
+		 */
 	}
 }

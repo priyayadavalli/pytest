@@ -1,7 +1,6 @@
-package driver;
+package com.priya.driver;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,16 +9,14 @@ import java.util.Properties;
 import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
-import keywords.keywords;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import xls.sampleJXL;
-import xls.samplwritejxl;
+import com.priya.keywords.keywords;
+import com.priya.xls.sampleJXL;
+import com.priya.xls.samplwritejxl;
 
 public class sample {
 	public static Properties OR = new Properties();

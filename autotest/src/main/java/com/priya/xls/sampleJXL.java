@@ -1,10 +1,11 @@
-package xls;
+package com.priya.xls;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import jxl.*;
+import jxl.Sheet;
+import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class sampleJXL {
@@ -23,7 +24,7 @@ public class sampleJXL {
 		this.path = path;
 		workbook = Workbook.getWorkbook(new File(path));
 		sheet = workbook.getSheet(0);
-		
+
 	}
 
 	public int getRowCount(String sheetName) throws FileNotFoundException {
@@ -44,7 +45,8 @@ public class sampleJXL {
 
 		for (int i = 0; i < rn; i++) {
 			for (int j = 0; j < cn; j++) {
-				//System.out.println(""+j +i +sheet.getCell(j, i).getContents());
+				// System.out.println(""+j +i +sheet.getCell(j,
+				// i).getContents());
 				if (sheet.getCell(j, i).getContents().equalsIgnoreCase(colName)) {
 					tempNum = j;
 				}
@@ -65,7 +67,7 @@ public class sampleJXL {
 		return content;
 
 	}
-	
+
 	private int getColumnCount(String sheetName) {
 		this.sheetName = sheetName;
 		sheet = workbook.getSheet(sheetName);
@@ -106,32 +108,36 @@ public class sampleJXL {
 	}
 
 	public static void main(String[] args) throws IOException, BiffException {
-		//sampleJXL sxl = new sampleJXL("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
+		// sampleJXL sxl = new
+		// sampleJXL("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
 		sampleJXL sxl = new sampleJXL();
 		String temName;
 		sxl.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
 		sampleJXL sx2 = new sampleJXL();
-		for(int i=0;i<sxl.getRowCount("First Sheet");i++){
-					if(sxl.getCellContent("First Sheet", "Run Mode", i).equalsIgnoreCase("Y")){
-					temName=sxl.getCellContent("First Sheet", "ShortCut", i);
-					System.out.println(temName+" is temName");
-					sx2.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//"+temName+".xls");
-					for(int x=1;x<sx2.getRowCount("Test Run");x++){
-					System.out.println(sx2.getCellContent("Test Run","Steps",x));
-					}
-					
+		for (int i = 0; i < sxl.getRowCount("First Sheet"); i++) {
+			if (sxl.getCellContent("First Sheet", "Run Mode", i)
+					.equalsIgnoreCase("Y")) {
+				temName = sxl.getCellContent("First Sheet", "ShortCut", i);
+				System.out.println(temName + " is temName");
+				sx2.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//"
+						+ temName + ".xls");
+				for (int x = 1; x < sx2.getRowCount("Test Run"); x++) {
+					System.out.println(sx2.getCellContent("Test Run", "Steps",
+							x));
 				}
-				
+
+			}
+
 		}
-		
-		/*System.out.println(sxl.getCellContent("First Sheet", "TSID", 2));
-		System.out.println(sxl.getCellData("First Sheet", 2, 5));
-		System.out.println(sxl.getCellRowNum("First Sheet", "Ali Gajani",
-				"rishi"));
-		System.out.println(sxl.isSheetExist("First Sheet"));
-		System.out.println(sxl.isSheetExist("Second Sheet"));*/
-				
+
+		/*
+		 * System.out.println(sxl.getCellContent("First Sheet", "TSID", 2));
+		 * System.out.println(sxl.getCellData("First Sheet", 2, 5));
+		 * System.out.println(sxl.getCellRowNum("First Sheet", "Ali Gajani",
+		 * "rishi")); System.out.println(sxl.isSheetExist("First Sheet"));
+		 * System.out.println(sxl.isSheetExist("Second Sheet"));
+		 */
+
 	}
 
-	
 }
