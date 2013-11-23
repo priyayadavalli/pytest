@@ -1,0 +1,22 @@
+23/11/2013 13:40:24 devpinoyLogger ********************CM********************
+23/11/2013 13:40:24 devpinoyLogger Loginc is running becasuse run mode is Y
+23/11/2013 13:40:24 devpinoyLogger Loginc is going to run for 4 times
+23/11/2013 13:40:25 devpinoyLogger   typeString   Username   abc
+23/11/2013 13:40:25 devpinoyLogger   typeString   Password   abc
+23/11/2013 13:40:25 devpinoyLogger   click   Submit   
+23/11/2013 13:40:25 devpinoyLogger   verifyText      Logout
+23/11/2013 13:40:25 devpinoyLogger Loginc is going to run for 4 times
+23/11/2013 13:40:25 devpinoyLogger   typeString   Username   def
+23/11/2013 13:40:25 devpinoyLogger   typeString   Password   def
+23/11/2013 13:40:25 devpinoyLogger   click   Submit   
+23/11/2013 13:40:25 devpinoyLogger   verifyText      Logout
+23/11/2013 13:40:26 devpinoyLogger Loginc is going to run for 4 times
+23/11/2013 13:40:26 devpinoyLogger   typeString   Username   sdfg
+23/11/2013 13:40:26 devpinoyLogger   typeString   Password   sdfg
+23/11/2013 13:40:26 devpinoyLogger   click   Submit   
+23/11/2013 13:40:26 devpinoyLogger   verifyText      Logout
+23/11/2013 13:40:26 devpinoyLogger Loginc is going to run for 4 times
+23/11/2013 13:40:26 devpinoyLogger   typeString   Username   asdf
+23/11/2013 13:40:27 devpinoyLogger   typeString   Password   asdf
+23/11/2013 13:40:27 devpinoyLogger   click   Submit   
+23/11/2013 13:40:27 devpinoyLogger   verifyText      Logout
