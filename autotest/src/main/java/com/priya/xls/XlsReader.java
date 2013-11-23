@@ -8,7 +8,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class sampleJXL {
+public class XlsReader {
 
 	public String path;
 	public Sheet sheet = null;
@@ -110,10 +110,10 @@ public class sampleJXL {
 	public static void main(String[] args) throws IOException, BiffException {
 		// sampleJXL sxl = new
 		// sampleJXL("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
-		sampleJXL sxl = new sampleJXL();
+		XlsReader sxl = new XlsReader();
 		String temName;
 		sxl.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
-		sampleJXL sx2 = new sampleJXL();
+		XlsReader sx2 = new XlsReader();
 		for (int i = 0; i < sxl.getRowCount("First Sheet"); i++) {
 			if (sxl.getCellContent("First Sheet", "Run Mode", i)
 					.equalsIgnoreCase("Y")) {

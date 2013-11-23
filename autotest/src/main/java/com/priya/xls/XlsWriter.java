@@ -13,7 +13,7 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
-public class samplwritejxl {
+public class XlsWriter {
 
 	public String path;
 	public Sheet sheet = null;
@@ -80,7 +80,7 @@ public class samplwritejxl {
 	public static void main(String[] args) throws BiffException, IOException,
 			RowsExceededException, WriteException {
 
-		samplwritejxl sx3 = new samplwritejxl();
+		XlsWriter sx3 = new XlsWriter();
 		sx3.writeResult(
 				"C://Users//kyadavalli//workspace//MyAutomation//src//xls//abc.xls",
 				"Test Run");

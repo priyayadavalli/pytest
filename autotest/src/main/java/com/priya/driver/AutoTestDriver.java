@@ -2,6 +2,7 @@ package com.priya.driver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Properties;
@@ -14,21 +15,21 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import com.priya.keywords.keywords;
-import com.priya.xls.sampleJXL;
-import com.priya.xls.samplwritejxl;
+import com.priya.keywords.Keywords;
+import com.priya.xls.XlsReader;
+import com.priya.xls.XlsWriter;
 
-public class sample {
+public class AutoTestDriver {
 	public static Properties OR = new Properties();
 	public static WebDriver driver = null;
 	public static Logger APP_LOGS;
-	public static FileInputStream fs;
-	public static keywords keywords;
+	public static InputStream fs;
+	public static Keywords keywords;
 	public static Method method[];
 	public static String keyword_execution_result;
-	public static sampleJXL sxl;
-	public static samplwritejxl sx3;
-	public static sampleJXL sx2;
+	public static XlsReader sxl;
+	public static XlsWriter sx3;
+	public static XlsReader sx2;
 	public static int y;
 	public static int s;
 	public static String Name;
@@ -41,25 +42,25 @@ public class sample {
 			InterruptedException {
 
 		APP_LOGS = Logger.getLogger("devpinoyLogger");
-		fs = new FileInputStream(System.getProperty("user.dir")
-				+ "//src//OR//OR.properties");
+		fs = AutoTestDriver.class
+				.getResourceAsStream("/com/priya/OR/OR.properties");
 		OR.load(fs);
-		driver = new InternetExplorerDriver();
-		driver.get("http://10.11.1.23");
+		// driver = new InternetExplorerDriver();
+		// driver.get("http://10.11.1.23");
 		Thread.sleep(10000);
-		sxl = new sampleJXL();
-		sx3 = new samplwritejxl();
+		sxl = new XlsReader();
+		sx3 = new XlsWriter();
 		String temName;
-		sxl.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
-		sx2 = new sampleJXL();
+		sxl.openWorkBook("D://devhome/githome/github.com/pytest/autotest/src/main/resources/com/priya/xls/suite.xls");
+		sx2 = new XlsReader();
 		for (int i = 1; i < sxl.getRowCount("First Sheet"); i++) {
 			if (sxl.getCellContent("First Sheet", "Run Mode", i)
 					.equalsIgnoreCase("Y")) {
 				temName = sxl.getCellContent("First Sheet", "ShortCut", i);
-				sample.APP_LOGS.debug("********************" + temName
+				AutoTestDriver.APP_LOGS.debug("********************" + temName
 						+ "********************");
 
-				sx2.openWorkBook("C://Users//kyadavalli//workspace//MyAutomation//src//xls//"
+				sx2.openWorkBook("D://devhome/githome/github.com/pytest/autotest/src/main/resources/com/priya/xls/"
 						+ temName + ".xls");
 				for (int x = 1; x < sx2.getRowCount("Test Run"); x++) {
 					// write logic to execute test cases)
@@ -68,13 +69,13 @@ public class sample {
 						String tcName = sx2.getCellContent("Test Run", "Name",
 								x);
 
-						sample.APP_LOGS.debug(tcName
+						AutoTestDriver.APP_LOGS.debug(tcName
 								+ " is running becasuse run mode is Y");
 
 						if (sx2.isSheetExist(tcName)) {
 
 							for (s = 1; s < (sx2.getRowCount(tcName)); s++) {
-								sample.APP_LOGS.debug(tcName
+								AutoTestDriver.APP_LOGS.debug(tcName
 										+ " is going to run for "
 										+ (sx2.getRowCount(tcName) - 1)
 										+ " times");
@@ -100,8 +101,9 @@ public class sample {
 									String Value = sx2.getCellContent(
 											"Test Cases", "Value", r);
 
-									sample.APP_LOGS.debug("  " + step + "   "
-											+ Object + "   " + Value + "");
+									AutoTestDriver.APP_LOGS.debug("  " + step
+											+ "   " + Object + "   " + Value
+											+ "");
 
 								}
 							}
@@ -129,8 +131,8 @@ public class sample {
 		}
 
 		System.out.println("executing Keywords");
-		sample.APP_LOGS
-				.debug("  " + step + "   " + Object + "   " + Value + "");
+		AutoTestDriver.APP_LOGS.debug("  " + step + "   " + Object + "   "
+				+ Value + "");
 
 		return true;
 	}

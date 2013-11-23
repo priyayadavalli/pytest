@@ -2,16 +2,16 @@ package com.priya.keywords;
 
 import org.openqa.selenium.By;
 
-import com.priya.driver.sample;
+import com.priya.driver.AutoTestDriver;
 
-public class keywords {
+public class Keywords {
 
 	public static String typeString(String Object, String Name) {
 		String flag = "Fail";
 		try {
-			sample.APP_LOGS.debug(Name + " will be typed at " + Object);
+			AutoTestDriver.APP_LOGS.debug(Name + " will be typed at " + Object);
 
-			sample.driver.findElement(By.xpath(Object)).sendKeys(Name);
+			AutoTestDriver.driver.findElement(By.xpath(Object)).sendKeys(Name);
 			flag = "Pass";
 		} catch (Exception e) {
 			System.out.println(e);
@@ -24,9 +24,9 @@ public class keywords {
 	public static String click(String Object, String Name) {
 		String flag = "Fail";
 		try {
-			sample.APP_LOGS.debug(Object + " will be clicked");
+			AutoTestDriver.APP_LOGS.debug(Object + " will be clicked");
 
-			sample.driver.findElement(By.xpath(Object)).click();
+			AutoTestDriver.driver.findElement(By.xpath(Object)).click();
 			flag = "Pass";
 		} catch (Exception e) {
 			System.out.println(e);
@@ -38,8 +38,8 @@ public class keywords {
 
 	public static String verifyText(String Object, String Name) {
 		String flag = "Fail";
-		if (sample.driver.findElement(By.linkText(Name)) != null) {
-			sample.driver.findElement(By.linkText(Name)).click();
+		if (AutoTestDriver.driver.findElement(By.linkText(Name)) != null) {
+			AutoTestDriver.driver.findElement(By.linkText(Name)).click();
 			flag = "Pass";
 		}
 		return flag;
@@ -48,7 +48,7 @@ public class keywords {
 	public static String openURL(String Object, String Name) {
 		String flag = "Fail";
 		try {
-			sample.driver.get(Name);
+			AutoTestDriver.driver.get(Name);
 		} catch (Exception ex) {
 			System.out.println("could not open the specified URL");
 		}
@@ -59,30 +59,30 @@ public class keywords {
 	public static String navigate(String Object, String Name) {
 		// object will not be an input...has to be read from OR
 		String flag = "Fail";
-		sample.APP_LOGS.debug("navigating");
+		AutoTestDriver.APP_LOGS.debug("navigating");
 		try {
 			if (Name == "Administration" || Name == "administration")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectA"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectA"));
 
 			if (Name == "Compliance Manager" || Name == "compliance manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectC"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectC"));
 
 			if (Name == "Enterprise Risk Manager"
 					|| Name == "enterprise risk manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectE"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectE"));
 
 			if (Name == "Vendor Risk Manager" || Name == "vendor risk manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectV"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectV"));
 
 			if (Name == "Threat & Vulnerability Manager"
 					|| Name == "threat & vulnerability manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectT"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectT"));
 
 			if (Name == "Policy Manager" || Name == "policy manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectP"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectP"));
 
 			if (Name == "Incident Manager" || Name == "incident manager")
-				sample.driver.navigate().to(sample.OR.getProperty("ObjectI"));
+				AutoTestDriver.driver.navigate().to(AutoTestDriver.OR.getProperty("ObjectI"));
 			flag = "Pass";
 		} catch (Exception e) {
 			System.out.println(e);

@@ -18,7 +18,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
 
-public class xlsReadWrite {
+public class XlsPoiReadWrite {
 	// public static String filename =
 	// System.getProperty("user.dir")+"\\src\\config\\testcases\\TestData.xlsx";
 	public String path;
@@ -29,7 +29,7 @@ public class xlsReadWrite {
 	private HSSFRow row = null;
 	private HSSFCell cell = null;
 
-	public xlsReadWrite(String path) {
+	public XlsPoiReadWrite(String path) {
 
 		this.path = path;
 		try {
@@ -469,7 +469,7 @@ public class xlsReadWrite {
 	}
 
 	public static void main(String args[]) {
-		xlsReadWrite read = new xlsReadWrite(
+		XlsPoiReadWrite read = new XlsPoiReadWrite(
 				"	C://Users//kyadavalli//workspace//MyAutomation//src//xls//suite.xls");
 		System.out.println(System.getProperty("user.dir"));
 		System.out.println(read.getRowCount("Test Suites"));
